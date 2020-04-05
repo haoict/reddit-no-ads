@@ -1,0 +1,9 @@
+Package: com.haoict.redditnoads
+Name: Reddit No Ads
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Hide "Promoted" post for Reddit app
+Maintainer: Hao Nguyen
+Author: Hao Nguyen
+Section: Tweaks
