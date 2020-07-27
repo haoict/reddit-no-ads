@@ -14,7 +14,7 @@ static void reloadPrefs() {
 %group NewsFeedAndPosts
   %hook Post
   - (bool)isHidden {  
-    if([NSStringFromClass([self classForCoder]) isEqual:@"AdPost"]){
+    if ([NSStringFromClass([self classForCoder]) isEqual:@"AdPost"]) {
       return 1;
     }
     return %orig;
