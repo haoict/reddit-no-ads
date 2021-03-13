@@ -10,7 +10,7 @@ Free & Open Source Tweak for Reddit app on iOS!
 ## Features
 - Remove Ads
 - Lightweight
-- Support iOS 10 (not tested) - 11 (tested) - 12 (tested) - 13 (tested)
+- Support iOS 12 - 14
 - Support latest Reddit version (If it doesn't work, you should update the app to latest version)
 
 ## Cydia Repo

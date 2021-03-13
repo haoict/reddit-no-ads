@@ -1,7 +1,7 @@
 Package: com.haoict.redditnoads
 Name: Reddit No Ads
-Depends: mobilesubstrate, preferenceloader, com.haoict.libhdev (>= 4.5.0), firmware (>= 10)
-Version: 1.0.0
+Depends: mobilesubstrate, preferenceloader, com.haoict.libhdev (>= 4.8.0), firmware (>= 12)
+Version: 1.1.0
 Architecture: iphoneos-arm
 Description: Free & Open Source Tweak for Reddit
  Free & Open Source Tweak for Reddit
@@ -10,7 +10,7 @@ Description: Free & Open Source Tweak for Reddit
  Features:
  - Remove Ads
  - Lightweight
- - Support iOS 10 - 13 & latest Reddit version
+ - Support iOS 12 - 14 & latest Reddit version
  . 
  I work very hard to make good, free and open source tweaks for everyone
  If you want to support, you can buy me a coffee at https://www.paypal.me/haoict

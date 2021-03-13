@@ -20,6 +20,12 @@ static void reloadPrefs() {
     return %orig;
   }
   %end
+
+  %hook CommentAdPostCellNode
+    - (id)initWithViewContext:(id)arg1 adPost:(id)arg2 delegate:(id)arg3 {
+      return nil;
+    }
+  %end
 %end
 
 %ctor {
