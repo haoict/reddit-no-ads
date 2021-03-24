@@ -22,8 +22,13 @@ static void reloadPrefs() {
   %end
 
   %hook CommentAdPostCellNode
-    - (id)initWithViewContext:(id)arg1 adPost:(id)arg2 delegate:(id)arg3 {
-      return nil;
+    - (CommentAdPostCellNode *)initWithViewContext:(id)arg1 adPost:(id)arg2 delegate:(id)arg3 {
+      // return nil makes the first normal comment disappeared
+      CommentAdPostCellNode *orig = %orig(nil, nil, nil);
+      // the best I can do right now is hide the cell because I can't find a way to set its height to 0.
+      // it's still showing empty placeholder for ads though. I might need to investigate futher.
+      orig.hidden = TRUE;
+      return orig;
     }
   %end
 %end

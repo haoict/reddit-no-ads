@@ -6,3 +6,12 @@
 
 @interface Post : NSObject
 @end
+
+@interface ASDisplayNode : UIView
+@property(getter=isHidden) BOOL hidden;
+@property BOOL neverShowPlaceholders;
+@end
+
+
+@interface CommentAdPostCellNode : ASDisplayNode
+@end
