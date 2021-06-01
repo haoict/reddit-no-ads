@@ -11,6 +11,17 @@ static void reloadPrefs() {
   noads = [[settings objectForKey:@"noads"] ?: @(YES) boolValue];
 }
 
+static void checkAppVersion() {
+  NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+  if ([version compare:@"2021.19.0" options:NSNumericSearch] == NSOrderedAscending) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+      dispatch_async(dispatch_get_main_queue(), ^{
+        [HCommon showAlertMessage:@"Your current version of Reddit is not supported, please go to App Store and update it (>=2021.19.0)" withTitle:@"Reddit No Ads" viewController:nil];
+      });
+    });
+  }
+}
+
 %group NewsFeedAndPosts
   %hook Post
   - (bool)isHidden {  
@@ -22,13 +33,8 @@ static void reloadPrefs() {
   %end
 
   %hook CommentAdPostCellNode
-    - (CommentAdPostCellNode *)initWithViewContext:(id)arg1 adPost:(id)arg2 delegate:(id)arg3 {
-      // return nil makes the first normal comment disappeared
-      CommentAdPostCellNode *orig = %orig(nil, nil, nil);
-      // the best I can do right now is hide the cell because I can't find a way to set its height to 0.
-      // it's still showing empty placeholder for ads though. I might need to investigate futher.
-      orig.hidden = TRUE;
-      return orig;
+    - (id)initWithViewContext:(id)arg1 adPost:(id)arg2 delegate:(id)arg3 {
+      return nil;
     }
   %end
 %end
@@ -37,7 +43,9 @@ static void reloadPrefs() {
   CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback) reloadPrefs, CFSTR(PREF_CHANGED_NOTIF), NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
   reloadPrefs();
 
+  checkAppVersion();
+
   if (noads) {
-    %init(NewsFeedAndPosts);
+    %init(NewsFeedAndPosts, CommentAdPostCellNode = objc_getClass("Reddit.CommentAdPostCellNode"));
   }
 }
