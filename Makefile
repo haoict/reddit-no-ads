@@ -10,7 +10,7 @@ TWEAK_NAME = redditnoads
 
 redditnoads_FILES = $(wildcard *.xm *.m)
 redditnoads_EXTRA_FRAMEWORKS = libhdev
-redditnoads_CFLAGS = -fobjc-arc -std=c++11
+redditnoads_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
