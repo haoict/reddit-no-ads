@@ -1,0 +1,20 @@
+{
+"APPLY" = "Anwenden";
+"BUY_ME_A_COFFEE" = "Kauf mir einen Kaffee";
+"CANCEL" = "Abbrechen ";
+"CONFIRM" = "Bestätigen";
+"DEFAULT" = "Standard";
+"DONATION" = "Spende 💰";
+"DO_YOU_REALLY_WANT_TO_KILL_REDDIT" = "Willst du Reddit wirklich neu laden?";
+"FEATURE_REQUEST" = "Erweiterung anfragen ✨";
+"FOUND_A_BUG" = "Fehler gefunden 🐛";
+"LEAVE_A_BUG_REPORT_ON_GITHUB" = "Hinterlasse einen Fehlerbericht auf Github";
+"MAIN_PREFERENCES" = "Haupteinstellungen";
+"NO_ADS" = "Keine Werbung";
+"OTHER_PREFERENCES" = "Andere Einstellungen";
+"REMOVE_ADS_IN_NEWS_FEED" = "Werbung im Newsfeed entfernen";
+"RESET_SETTINGS" = "Einstellungen zurücksetzen";
+"SEND_ME_AN_EMAIL_WITH_YOUR_REQUEST" = "Sende mir eine E-Mail mit deiner Anfrage";
+"SOURCE_CODE" = "Quellcode 🤖";
+"SUPPORT_ME"  ="Unterstütze mich";
+}
