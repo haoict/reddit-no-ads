@@ -13,13 +13,23 @@ static void reloadPrefs() {
 
 %group NewsFeedAndPosts
   %hook Post
-  - (bool)isHidden {  
-    NSString *className = NSStringFromClass([self class]);
-    if ([className isEqual:@"RedditCore.AdPost"] || [className isEqual:@"AdPost"]) {
-      return 1;
+    - (bool)isHidden {  
+      NSString *className = NSStringFromClass([self class]);
+      if ([className isEqual:@"RedditCore.AdPost"] || [className isEqual:@"AdPost"]) {
+        return 1;
+      }
+      return %orig;
     }
-    return %orig;
-  }
+  %end
+
+  %hook RedditCorePost
+    - (bool)isHidden {  
+      NSString *className = NSStringFromClass([self class]);
+      if ([className isEqual:@"RedditCore.AdPost"]) {
+        return 1;
+      }
+      return %orig;
+    }
   %end
 
   %hook CommentAdPostCellNode
@@ -34,6 +44,6 @@ static void reloadPrefs() {
   reloadPrefs();
 
   if (noads) {
-    %init(NewsFeedAndPosts, CommentAdPostCellNode = objc_getClass("Reddit.CommentAdPostCellNode"));
+    %init(NewsFeedAndPosts, CommentAdPostCellNode = objc_getClass("Reddit.CommentAdPostCellNode"), RedditCorePost = objc_getClass("RedditCore.Post"));
   }
 }
